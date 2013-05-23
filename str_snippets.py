@@ -114,9 +114,16 @@ def age(birthday=False):
         return str(day_diff/30) + u' months'
     return str(day_diff/365) + u' years'
 
+def nl2br(s, max_line_count=None):
+    lines = s.splitlines()
+    if max_line_count:
+        lines = lines[0:max_line_count]
+    return '<br>'.join(lines)
+
 if __name__ == '__main__':
     print unistr(u'1去23里，烟村45家'.encode('gb2312'))
     print filesize(1000 * 1000) 
     print filetype('hello.py') 
     print pretty_date(datetime(2000, 1, 1)) 
     print age(datetime(2000, 1, 1)) 
+    print nl2br(u'亭台67座\n8910枝花\n', 2)
